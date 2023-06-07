@@ -25,12 +25,18 @@ $(function() {
         // }
 
         slides.each(function(i){
-           
             var newLeft = i * 100 + '%';
             $(this).css({left:newLeft});
-        });
 
+            //<a href="" >1</a>
+            //var i = 2; i = i+2; i+2
+            // indicatorHtml = indicatorHtml + ??
+            // indicatorHtml += ??
+            indicatorHtml += "<a href='' >" +(i+1)+"</a>"
 
-
-
+        }); // slides.each
+        // A.text(B);  a 요소의 b의 내용을 글씨 형태로 추가
+        // A.html(B);  a 요소의 b의 내용을 html 형태로 추가
+        // indicator.text(indicatorHtml);
+        indicator.html(indicatorHtml);
 });
