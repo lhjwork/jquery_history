@@ -102,6 +102,7 @@ $(function() {
 
         // })
     
+        // 강의 코드
             nav.find('a').click(function(e) {
                 e.preventDefault();
 
@@ -116,5 +117,5 @@ $(function() {
                 }
             })
 
-            updateNav();
+            updateNav(); // 첫화면에서 실행하기 위해서
 });
