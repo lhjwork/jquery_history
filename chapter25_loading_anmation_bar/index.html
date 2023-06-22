@@ -26,6 +26,23 @@
 </head>
 <body>
 
+    <div class="progress-bar">
+        <div class="bar"></div>
+        <div class="rate" data-rate="60">10%</div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script>
+        var progressWrap = $('.progress-bar'),
+            progressBar = $('.progress-bar').find('.bar'),
+            progressText = progressWrap.find('.rate'),
+            progressRate = progressText.attr('data-rate');
+
+        // bar animation 2.5s width 바뀌는 애니메이트
+        
+        progressBar.animate({width:progressRate + '%'},2500);
+
+    </script>
+
 </body>
 </html>
 
