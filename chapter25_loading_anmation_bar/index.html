@@ -28,9 +28,10 @@
 
     <div class="progress-bar">
         <div class="bar"></div>
-        <div class="rate" data-rate="60"></div>
+        <div class="rate" data-rate="60">0</div>
     </div>
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="./js/jquery.animateNumber.min.js"></script>
     <script>
         var progressWrap = $('.progress-bar'),
             progressBar = $('.progress-bar').find('.bar'),
@@ -50,11 +51,11 @@
         // 요소의 높이 A.height
 
         // 첫번째 setInterval을 이용하는 방법
-        setInterval(textAnimation, 1000/10);
-        function textAnimation() {
-            var currentWidth = progressBar.width() / progressWrap.width() * 100;
-            progressText.text(Math.ceil(currentWidth) +'%');
-        }
+        // setInterval(textAnimation, 1000/10);
+        // function textAnimation() {
+        //     var currentWidth = progressBar.width() / progressWrap.width() * 100;
+        //     progressText.text(Math.ceil(currentWidth) +'%');
+        // }
 
         // animate 를 활용한 방법
         // css 속성중에서 수치가 있는 요소만 animate
@@ -67,14 +68,22 @@
         //     complete:function(){}
         // })
 
+        
+        // 두번째 방법
         // animate 옵션을 활용 사용자 속성 만들고, 속성이 바뀌는 것을 작성
-        $({rate : 0}).animate({rate:progressRate},{
-            duration :2500,
-            progress:function(){
-                var now = this.rate;
-                progressText.text(Math.ceil(now) + '%');
-            }   
-        })
+        // $({rate : 0}).animate({rate:progressRate},{
+        //     duration :2500,
+        //     progress:function(){
+        //         var now = this.rate;
+        //         progressText.text(Math.ceil(now) + '%');
+        //     }   
+        // })
+
+
+        // 세번쨰 방법  : animate Number
+        var percent_number_step = $.animateNumber.numberStepFactories.append(' %')
+        progressText.animateNumber({ number: progressRate, numberStep :percent_number_step},2500);
+
 
 
     </script>
