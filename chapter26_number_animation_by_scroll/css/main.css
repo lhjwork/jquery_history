@@ -76,3 +76,18 @@ table {
 	color: green;
 	line-height: 30px;
 }
+
+
+.section1{
+	margin: 0 auto;
+	height: 1200px;
+	width: 80%;
+	border:solid 1px #000;
+	
+}
+.section2{
+	margin: 0 auto;
+	height: 1200px;
+	width: 80%;
+	border:solid 1px #000;
+}
