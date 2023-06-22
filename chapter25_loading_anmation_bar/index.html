@@ -28,7 +28,7 @@
 
     <div class="progress-bar">
         <div class="bar"></div>
-        <div class="rate" data-rate="60">10%</div>
+        <div class="rate" data-rate="60"></div>
     </div>
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <script>
@@ -36,10 +36,46 @@
             progressBar = $('.progress-bar').find('.bar'),
             progressText = progressWrap.find('.rate'),
             progressRate = progressText.attr('data-rate');
+            progressText.text('0%')
 
         // bar animation 2.5s width 바뀌는 애니메이트
-        
+    
         progressBar.animate({width:progressRate + '%'},2500);
+
+        // 1000/10 0.1s 마다 0->1-2 ... 60
+        // 일정시간마다 할일  setInterval(할일, 시간)
+        // 함수명 textAnimation = function(){실제로 할일}
+        // 실제로 할일 0% -> 1%.... progressText.text('0%')
+        // 요소의 너비 A.width
+        // 요소의 높이 A.height
+
+        // 첫번째 setInterval을 이용하는 방법
+        setInterval(textAnimation, 1000/10);
+        function textAnimation() {
+            var currentWidth = progressBar.width() / progressWrap.width() * 100;
+            progressText.text(Math.ceil(currentWidth) +'%');
+        }
+
+        // animate 를 활용한 방법
+        // css 속성중에서 수치가 있는 요소만 animate
+        // progressBar.animate({width:'60%'},2500, 'easeInOutQuint',function(){});
+
+        // // 옵션 값, 옵션 값
+        // progressBar.animate({width:'60%'},{
+        //     duration:2500,
+        //     easing:'easeInOutQuint',
+        //     complete:function(){}
+        // })
+
+        // animate 옵션을 활용 사용자 속성 만들고, 속성이 바뀌는 것을 작성
+        $({rate : 0}).animate({rate:progressRate},{
+            duration :2500,
+            progress:function(){
+                var now = this.rate;
+                progressText.text(Math.ceil(now) + '%');
+            }   
+        })
+
 
     </script>
 
