@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+/* Base */
+html { height: 100%; }
+body { height: 100%; overflow: hidden; }
+.scene { height : 100%; position: relative; }
+
+
+/* full-bg width 현재 높이 x 이미지 비율 */
+/* height: 100% = 현재 브라우저 높이 */
+ /* width = 현재의 이미지의 높이 x 원래 이미지의 비율 */
+
+ /* width : 100% = 현재 브라우저 너비 */
+ /* height : (이미지 너비 / 이미지 비율) */
+
+.full-bg {
+    position: absolute;
+}
+.full-bg img {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+
+
+
+
+
+
+/* left = (이미지 너비 - 브라우저 너비 ) / 2 */
