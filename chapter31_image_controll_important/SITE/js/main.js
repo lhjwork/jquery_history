@@ -12,7 +12,10 @@ $(function() {
             windowHeight = currentWindow.height(),
             browserRatio = windowWidth / windowHeight,
             // 이미지 비율은 불러올 방법이 없단다..
-            imageRatio = 864/486;
+            // imageRatio = 864/486;
+
+            // 비디오 비율
+            imageRatio = 854/480;
        
         
 
